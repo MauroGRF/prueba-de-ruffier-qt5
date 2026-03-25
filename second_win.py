@@ -31,6 +31,15 @@ class Experiment:
         self.t2 = test2
         self.t3 = test3
 
+    def calc_ruffier(self):
+        calculo = (self.t1 + self.t2 + self.t3 - 200) / 10
+        
+        if calculo < 0:
+            calculo = 0
+
+        return calculo
+    
+
 
 class TestWin(QWidget):
     def __init__(self):
@@ -75,6 +84,7 @@ class TestWin(QWidget):
         self.text_test3 = QLabel(txt_test3)
 
         self.text_timer = QLabel(txt_timer)
+        self.text_timer.setStyleSheet(STYLE_DARK)
         self.text_timer.setFont(
             QFont(
                 "Times",
@@ -95,6 +105,7 @@ class TestWin(QWidget):
         self.r_line = QVBoxLayout()  # organizador de Elementos Ubicado a la derecha
         self.h_line = QHBoxLayout()  # Organiza a l y r line
 
+        self.l_line
         # Alineacion del elemento en la interfaz (AlignTop, AlignCenter, AlignBottom)
         self.r_line.addWidget(self.text_timer, alignment=Qt.AlignTop)
 
@@ -123,9 +134,9 @@ class TestWin(QWidget):
         self.hide()
         self.exp = Experiment(
             int(self.line_age.text()),
-            self.line_test1.text(),
-            self.line_test2.text(),
-            self.line_test2.text(),
+            int(self.line_test1.text()),
+            int(self.line_test2.text()),
+            int(self.line_test2.text())
         )
         self.fw = FinalWin(self.exp)
 
@@ -154,7 +165,7 @@ class TestWin(QWidget):
     def timer1Event(self):
         global time
         time = time.addSecs(-1)
-        self.text_timer.setText(time.toString("hh:mm:ss"))
+        self.text_timer.setText(time.toString("hh:mm:ss")[5:8])
         self.text_timer.setFont(QFont("Times", 36, QFont.Bold))
         self.text_timer.setStyleSheet("color: rgb(0,0,0)")
         if time.toString("hh:mm:ss") == "00:00:00":

@@ -3,7 +3,7 @@ QWidget {
     background-color: #121212;
     color: #E0E0E0;
     font-family: "Segoe UI", sans-serif;
-    font-size: 14px;
+    font-size: 64px;
 }
 
 QPushButton {

@@ -40,7 +40,10 @@ class FinalWin(QWidget):
 
     def results(self):
 
-        rendimiento = self.index
+        rendimiento = self.exp.calc_ruffier()
+
+
+        print(rendimiento)
 
         if rendimiento > 15:
             return txt_res1
@@ -60,7 +63,7 @@ class FinalWin(QWidget):
     def initUI(self):
         """crea elementos gráficos"""
         self.work_text = QLabel(txt_workheart + self.results())
-        self.index_text = QLabel(txt_index + str(self.index))
+        self.index_text = QLabel(txt_index + str(self.exp.calc_ruffier()))
 
         self.layout_line = QVBoxLayout()
         self.layout_line.addWidget(self.index_text, alignment=Qt.AlignCenter)

@@ -23,7 +23,6 @@ from instr import *
 from second_win import *
 from styling import *
 
-
 class MainWin(QWidget):
     def __init__(self):
         """la ventana en donde se encuentra el saludo"""
